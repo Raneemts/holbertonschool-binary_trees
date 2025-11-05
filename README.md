@@ -1,160 +1,82 @@
-# C - Binary trees
+<div align="center">
+  <h1>Simple Shell <img src="https://cdn-icons-png.flaticon.com/128/6821/6821173.png" width=60 align=center> </h1>
+  <h6>
+    <a href="https://github.com/xtvkyx/holbertonschool-simple_shell#man-page-">Man Page</a>
+    ·
+    <a href="https://github.com/xtvkyx/holbertonschool-simple_shell#compilation-">Compilation</a>
+    ·
+    <a href="https://github.com/xtvkyx/holbertonschool-simple_shell#list-of-built-in-commands-">Commands</a>
+    ·
+    <a href="https://github.com/felixtvkyxpevcc/holbertonschool-simple_shell#usage-">Usage</a>
+  </h6>
+  <img src="https://img.shields.io/github/repo-size/xtvkyx/holbertonschool-simple_shell?color=E1927F&labelColor=1a1e29&style=for-the-badge">
+</div>
 
-This was a partner project in which we learned about the details, advantages,
-and disadvantages of using trees as data structures. We learned about how to
-qualify trees as well as how to traverse them. Throughout the project, we
-implemented binary, binary search tree.
+## Description <img src="https://cdn-icons-png.flaticon.com/128/1903/1903496.png" width=45 align=center>
 
-## Tests :heavy_check_mark:
+Simple Shell is a command line interpreter developed in C language that emulates the most basic functionality of `sh`.
 
-* [tests](./tests): Folder of test files for all tasks. Provided by Holberton
-School.
+## Man page <img src="https://cdn-icons-png.flaticon.com/128/781/781103.png" width=50 align=center>
 
-## Helper File :raised_hands:
-
-* [binary_tree_print.c](./binary_tree_print.c): C function that prints binary
-trees in a pretty way.
-
-## Header File :file_folder:
-
-* [binary_trees.h](./binary_trees.h): Header file containing definitions and
-prototypes for all types and functions written for the project.
-
-Data Structures
+The man page is a file wich explains in detail how Simple Shell works. If you want see a full explanation of this function you can run our man page this way:
 ```
-struct binary_tree_s
-{
-    int n;
-    struct binary_tree_s *parent;
-    struct binary_tree_s *left;
-    struct binary_tree_s *right;
-};
-
-typedef struct binary_tree_s binary_tree_t;
-typedef struct binary_tree_s bst_t;
-typedef struct binary_tree_s avl_t;
-typedef struct binary_tree_s heap_t;
+$ man ./man_1_simple_shell
 ```
 
-Function Prototypes
+## Flowchart <img src="https://cdn-icons-png.flaticon.com/128/3051/3051633.png" width=45 align=center>
 
-| File                             | Prototype                                                                                        |
-| -------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `binary_tree_print.c`            | `void binary_tree_print(const binary_tree_t *tree)`                                              |
-| `0-binary_tree_node.c`           | `binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);`                             |
-| `1-binary_tree_insert_left.c`    | `binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);`                      |
-| `2-binary_tree_insert_right.c`   | `binary_tree_t *binary_tree_insert_right(binary_tree_t *parent, int value);`                     |
-| `3-binary_tree_delete.c`         | `void binary_tree_delete(binary_tree_t *tree);`                                                  |
-| `4-binary_tree_is_leaf.c`        | `int binary_tree_is_leaf(const binary_tree_t *node);`                                            |
-| `5-binary_tree_is_root.c`        | `int binary_tree_is_root(const binary_tree_t *node);`                                            |
-| `6-binary_tree_preorder.c`       | `void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));`                       |
-| `7-binary_tree_inorder.c`        | `void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int));`                        |
-| `8-binary_tree_postorder.c`      | `void binary_tree_postorder(const binary_tree_t *tree, void (*func)(int));`                      |
-| `9-binary_tree_height.c`         | `size_t binary_tree_height(const binary_tree_t *tree);`                                          |
-| `10-binary_tree_depth.c`         | `size_t binary_tree_depth(const binary_tree_t *tree);`                                           |
-| `11-binary_tree_size.c`          | `size_t binary_tree_size(const binary_tree_t *tree);`                                            |
-| `12-binary_tree_leaves.c`        | `size_t binary_tree_leaves(const binary_tree_t *tree);`                                          |
-| `13-binary_tree_nodes.c`         | `size_t binary_tree_nodes(const binary_tree_t *tree);`                                           |
-| `14-binary_tree_balance.c`       | `int binary_tree_balance(const binary_tree_t *tree);`                                            |
-| `15-binary_tree_is_full.c`       | `int binary_tree_is_full(const binary_tree_t *tree);`                                            |
-| `16-binary_tree_is_perfect.c`    | `int binary_tree_is_perfect(const binary_tree_t *tree);`                                         |
-| `17-binary_tree_sibling.c`       | `binary_tree_t *binary_tree_sibling(binary_tree_t *node);`                                       |
-| `18-binary_tree_uncle.c`         | `binary_tree_t *binary_tree_uncle(binary_tree_t *node);`                                         |
+<img src="https://i.imgur.com/f6YWz5o.jpg" alt="flowchart">
 
+## Compilation <img src="https://cdn-icons-png.flaticon.com/128/8084/8084300.png" width=50 align=center>
 
-## Tasks :page_with_curl:
+To compile the program this command has to be executed:
+```
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+```
+To run the shell is like this:
+```
+$ ./hsh
+```
 
-* **0. New node**
-  * [0-binary_tree_node.c](./0-binary_tree_node.c): C function that creates a
-  binary tree node with a given parent and value.
-  * Returns a pointer to the new node, or `NULL` on failure.
+## List of built-in commands <img src="https://cdn-icons-png.flaticon.com/128/868/868684.png" width=45 align=center>
 
-* **1. Insert left**
-  * [1-binary_tree_insert](./1-binary_tree_insert.c): C function that inserts a
-  node as the left-child of another.
-  * Returns a pointer to the new node, or `NULL` on failure.
-  * If the given `parent` already contains a left node, the new node takes its
-  place and the old left-child becomes the left-child of the new node.
+This list is of the built-in commands, apart from those found in the PATH.
 
-* **2. Insert right**
-  * [2-binary_tree_insert_right.c](./2-binary_tree_insert_right.c): C function that
-  inserts a node as the right-child of another.
-  * Returns a pointer to the new node, or `NULL` on failure.
-  * If the given `parent` already contains a right node, the new node takes its
-  place and the old right-child becomes the right-child of the new node.
+| Command  | Description |
+| -------- |:------------|
+| env      | Displays the current environment |
+| exit     | Causes the shell to terminate |
 
-* **3. Delete**
-  * [3-binary_tree_delete.c](./3-binary_tree_delete.c): C function that deletes
-  an entire binary tree.
+## Usage <img src="https://cdn-icons-png.flaticon.com/512/3123/3123008.png" width=50 align=center>
 
-* **4. Is leaf**
-  * [4-binary_tree_is_leaf.c](./4-binary_tree_is_leaf.c): C function that checks
-  if a given node is a leaf.
-  * Returns `1` if the node is a leaf, `0` otherwise.
+The shell can be used in interactive or non-interactive mode.
+The interactive mode is how the shell is normally used, the executable file is run and we can write commands, here is an example:
+```
+$ ./hsh
+hsh$ ls
+file1 file2 directory/
+hsh$ pwd
+/home/user/simple_shell/
+hsh$ echo hello_world
+hello_world
+hsh$ exit
+$
+```
 
-* **5. Is root**
-  * [5-binary_tree_is_root.c](./5-binary_tree_is_root.c): C function that checks
-  if a given node is a root.
-  * Returns `1` if the node is a root, `0` otherwise.
+In the non-interactive mode you pass the command to the executable file with a pipe operator, as shown in the following example:
+```
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
 
-* **6. Pre-order traversal**
-  * [6-binary_tree_preorder.c](./6-binary_tree_preorder.c): C function that
-  traverses a tree using pre-order traversal.
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+```
 
-* **7. In-order traversal**
-  * [7-binary_tree_inorder.c](./7-binary_tree_inorder.c): C function that
-  traverses a tree using in-order traversal.
+## Authors <img src="https://cdn-icons-png.flaticon.com/128/2463/2463510.png" width=50 align=center>
 
-* **8. Post-order traversal**
-  * [8-binary_tree_postorder.c](./8-binary_tree_postorder.c): C function that
-  traverses a tree using post-order traversal.
+* Lamis Aljabli <a href="https://github.com/xtvkyx" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
+* Raneem Alsaqat <a href="https://github.com/raneemts" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
+<br>
 
-* **9. Height**
-  * [9-binary_tree_height.c](./9-binary_tree_height.c): C function that returns
-  the height of a binary tree.
-
-* **10. Depth**
-  * [10-binary_tree_depth.c](./10-binary_tree_depth.c): C function that returns
-  the depth of a given node in a binary tree.
-
-* **11. Size**
-  * [11-binary_tree_size.c](./11-binary_tree_size.c): C function that returns
-  the size of a binary tree.
-
-* **12. Leaves**
-  * [12-binary_tree_leaves.c](./12-binary_tree_leaves.c): C function that returns
-  the number of leaves in a binary tree.
-
-* **13. Nodes**
-  * [13-binary_tree_nodes.c](./13-binary_tree_nodes.c): C function that returns
-  the number of nodes in a binary tree with at least one child.
-
-* **14. Balance factor**
-  * [14-binary_tree_balance.c](./14-binary_tree_balance.c): C function that
-  returns the balance factor of a binary tree.
-
-* **15. Is full**
-  * [15-binary_tree_is_full.c](./15-binary_tree_is_full.c): C function that
-  checks if a binary tree is full.
-  * Returns `1` if a tree is full, `0` otherwise.
-
-* **16. Is perfect**
-  * [16-binary_tree_is_perfect.c](./16-binary_tree_is_perfect.c): C function
-  that checks if a binary tree is perfect.
-  * Returns `1` if a tree is perfect, `0` otherwise.
-
-* **17. Sibling**
-  * [17-binary_tree_sibling.c](./17-binary_tree_sibling.c): C function that
-  returns a pointer to the sibling of a given node in a binary tree.
-  * Returns `NULL` if no sibling is found.
-
-* **18. Uncle**
-  * [18-binary_tree_uncle.c](./18-binary_tree_uncle.c): C function that
-  returns a pointer to the uncle of a given node in a binary tree.
-  * Returns `NULL` if no uncle is found.
-
-
-## Authors :black_nib:
-
-* __Raneem Tarik Alsaqat__ <[raneemts](https://github.com/raneemts)>
-* __Lamis Fahad Aljabli__ <[xtvkyx](https://github.com/xtvkyx)>
+> Project developed during the [Holberton School](https://www.holbertonschool.com/) program.
